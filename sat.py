@@ -1,16 +1,8 @@
-"""
-6.1010 Spring '23 Lab 8: SAT Solver
-"""
-
-#!/usr/bin/env python3
-
 import sys
 import typing
 import doctest
 
 sys.setrecursionlimit(10_000)
-# NO ADDITIONAL IMPORTS
-
 
 def satisfying_assignment(formula):
     """
@@ -248,7 +240,6 @@ def values_in_subgrid(board, row, col):
 
     return vals
     
-
 def assignments_to_sudoku_board(assignments, n):
     """
     Given a variable assignment as given by satisfying_assignment, as well as a
@@ -267,55 +258,13 @@ def assignments_to_sudoku_board(assignments, n):
         if assignments[key] == True and not isinstance((key),type(None)):
             vals = key.split(".")
             board[int(vals[1])][int(vals[2])] = int(vals[0])
-    return board
-            
-            
-
+    return board         
 
 if __name__ == "__main__":
+    #example usage
     # a = [[["b", True], ["a", True]],[["b", True]],[["b", False],["a", False]], 
     #[["c",True],["d",True]]]
     # b = [[["e", False], ["b", False]], [["f", False]], [["a", False], 
     #["e", True]], [["i", True]], [["a", True]]]
     # print(satisfying_assignment(b))
-    # x = [ [1,2,3,4],
-    #   [3,4,1,2],
-    #   [2,3,4,1],
-    #   [4,1,2,3] ]
-    # x = [
-    #     [1, 2, 3, 4],
-    #     [3, 4, 2, 1],
-    #     [2, 1, 4, 3],
-    #     [4, 3, 1, 2],
-    # ]
-    x = [[1, 0, 0, 0],
-    [0, 0, 0, 4],
-    [3, 0, 0, 0],
-    [0, 0, 0, 2],]
-    y = sudoku_board_to_sat_formula(x)
-    print(y)
-    # y = sudoku_board_to_sat_formula(x)
-    # for i in y:
-    #     print(i)
-    # print(y)
-    # print("\n")
-        
-    # # a = values_in_subgrid(x, 0, 2)
-    # # print(a)
-    # # print()
-    # z = satisfying_assignment(y)
-    # print(z)
-    # print(satisfying_assignment([]))
-    #{}
-    # print(satisfying_assignment([[('a', True), ('b', False), ('c', True)]]))
-    #x.get('a', None) is True or x.get('b', None) is False or x.get('c', None) is True
-    #True
-    # print(satisfying_assignment([[('a', True)], [('a', False)]]))
-    # _doctest_flags = doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS
-    # doctest.testmod(optionflags=_doctest_flags)
-    # formula =  [[('c', False)], [('c', True), ('d', True)]]
-    # formula = [True, [('a', True), ('b', True), ('c', False)]]
-    # print(update_formula(formula,'c', True))
-    # print(get_vars(formula))
-    # print(get_new_var(formula))
     
